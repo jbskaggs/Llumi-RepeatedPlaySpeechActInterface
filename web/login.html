@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js" lang="" style="color:#222;line-height: 1.4;">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Login</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="css/main.css">
+	<style>
+		a:hover{
+			text-decoration: none;
+		}
+
+		.header{
+			position:relative;
+			height:10vh;
+			background-color: transparent;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#loginButton').click(function(){
+				handleLoginButton()
+			})
+		});
+
+		function handleLoginButton()
+		{
+			var path = "/login";
+			var method = "post";
+			var params = "{\"playerID\":\""+document.getElementById("playerID").value+"\",\"password\":\""+document.getElementById("password").value+ "\"}";
+			var obj = new XMLHttpRequest();
+
+
+			console.log(params);
+			obj.onreadystatechange = function () {
+				var response = obj.responseText;
+				if (response) {
+					var responseJson = JSON.parse(response);
+
+					console.log(responseJson);
+					if(responseJson.msg == "successfully logged in"){
+						localStorage = []
+						localStorage["playerID"] = document.getElementById("playerID").value
+						window.location.pathname = 'waitForGame.html'
+					}
+					else{
+						alert(responseJson.errorMsg +"\nIf you think this is an error, please ask the proctor")
+					}
+				}
+			};
+
+			obj.open(method,path,false);
+			obj.setRequestHeader("Content-Type", "application/json");
+			obj.send(params);
+			console.log(obj);
+			return false;
+		}
+
+	</script>
+
+</head>
+<body>
+<div class="container">
+	<div class="row header"></div>
+	<div class="row">
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:center;">
+
+			<form autocomplete="off">
+				<div class="form-group">
+					<label for="playerID"><h5>PlayerID</h5></label>
+					<input type="text" class="form-control" id="playerID" placeholder="Enter playerID">
+				</div>
+				<div class="form-group">
+					<label for="password"><h5>Password</h5></label>
+					<input type="password" class="form-control" id="password" placeholder="Enter password">
+				</div>
+			</form>
+
+			<br><br>
+			<a class="btn btn-outline-primary btn-lg" href="#" id="loginButton" id= role="button">Login</a>
+		</div>
+
+
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

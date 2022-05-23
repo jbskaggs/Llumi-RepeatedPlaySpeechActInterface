@@ -1,0 +1,7 @@
+data/
+bin/
+libs/
+out/
+*.o
+.idea/
+*.class

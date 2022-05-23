@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="no-js" lang="" style="color:#222;line-height: 1.4;">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title> S# Server </title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+	<!-- Place favicon.ico in the root directory -->
+
+	<link rel="stylesheet" href="css/main.css">
+	<style>
+	/*
+	 * What follows is the result of much research on cross-browser styling.
+	 * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+	 * Kroc Camen, and the H5BP dev community and team.
+	 */
+
+	/* ==========================================================================
+		 Base styles: opinionated defaults
+		 ========================================================================== */
+
+	html {
+			color: #222;
+			/*font-size: 1em;*/
+			line-height: 1.4;
+	}
+
+	body {
+		/*font-size:*/
+	}
+
+	h2{
+			text-align: center;
+	}
+
+	a {
+		color: blue;
+	}
+
+	div {
+		margin: 5px;
+	}
+
+	.requestBody
+	{
+			vertical-align: top;
+			width: 100%;
+			height: 500px;
+	}
+
+	.responseBody
+	{
+			vertical-align: top;
+			width: 100%;
+			height: 500px;
+	}
+
+	.bottom
+	{
+		margin:0;
+	}
+
+	ul {
+		padding-right: 15px;
+	}
+
+	/*
+	 * Remove text-shadow in selection highlight:
+	 * https://twitter.com/miketaylr/status/12228805301
+	 *
+	 * These selection rule sets have to be separate.
+	 * Customize the background color to match your design.
+	 */
+
+	::selection {
+			background: #b3d4fc;
+			text-shadow: none;
+	}
+
+	/*
+	 * A better looking default horizontal rule
+	 */
+
+	hr {
+			display: block;
+			height: 1px;
+			border: 0;
+			border-top: 1px solid #ccc;
+			margin: 1em 0;
+			padding: 0;
+	}
+
+	/*
+	 * Remove the gap between audio, canvas, iframes,
+	 * images, videos and the bottom of their containers:
+	 * https://github.com/h5bp/html5-boilerplate/issues/440
+	 */
+
+	audio,
+	canvas,
+	iframe,
+	img,
+	svg,
+	video {
+			vertical-align: middle;
+	}
+
+	/*
+	 * Remove default fieldset styles.
+	 */
+
+	fieldset {
+			border: 0;
+			margin: 0;
+			padding: 0;
+	}
+
+	/*
+	 * Allow only vertical resizing of textareas.
+	 */
+
+	textarea {
+			resize: vertical;
+	}
+
+	/* ==========================================================================
+		 Browser Upgrade Prompt
+		 ========================================================================== */
+
+	.browserupgrade {
+			margin: 0.2em 0;
+			background: #ccc;
+			color: #000;
+			padding: 0.2em 0;
+	}
+
+	/* ==========================================================================
+		 Author's custom styles
+		 ========================================================================== */
+
+
+	/* ==========================================================================
+		 Helper classes
+		 ========================================================================== */
+
+	/*
+	 * Hide visually and from screen readers:
+	 */
+
+	.hidden {
+			display: none !important;
+	}
+
+	/*
+	 * Hide only visually, but have it available for screen readers:
+	 * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+	 */
+
+	.visuallyhidden {
+			border: 0;
+			clip: rect(0 0 0 0);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+	}
+
+	/*
+	 * Extends the .visuallyhidden class to allow the element
+	 * to be focusable when navigated to via the keyboard:
+	 * https://www.drupal.org/node/897638
+	 */
+
+	.visuallyhidden.focusable:active,
+	.visuallyhidden.focusable:focus {
+			clip: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			position: static;
+			width: auto;
+	}
+
+	/*
+	 * Hide visually and from screen readers, but maintain layout
+	 */
+
+	.invisible {
+			visibility: hidden;
+	}
+
+	/*
+	 * Clearfix: contain floats
+	 *
+	 * For modern browsers
+	 * 1. The space content is one way to avoid an Opera bug when the
+	 *    `contenteditable` attribute is included anywhere else in the document.
+	 *    Otherwise it causes space to appear at the top and bottom of elements
+	 *    that receive the `clearfix` class.
+	 * 2. The use of `table` rather than `block` is only necessary if using
+	 *    `:before` to contain the top-margins of child elements.
+	 */
+
+	.clearfix:before,
+	.clearfix:after {
+			content: " "; /* 1 */
+			display: table; /* 2 */
+	}
+
+	.clearfix:after {
+			clear: both;
+	}
+
+	/* ==========================================================================
+		 EXAMPLE Media Queries for Responsive Design.
+		 These examples override the primary ('mobile first') styles.
+		 Modify as content requires.
+		 ========================================================================== */
+
+	@media only screen and (min-width: 35em) {
+			/* Style adjustments for viewports that meet the condition */
+	}
+
+	@media print,
+				 (min-resolution: 120dpi) {
+			/* Style adjustments for high resolution devices */
+	}
+
+	/* ==========================================================================
+		 Print styles.
+		 Inlined to avoid the additional HTTP request:
+		 http://www.phpied.com/delay-loading-your-print-css/
+		 ========================================================================== */
+
+	@media print {
+			*,
+			*:before,
+			*:after {
+					background: transparent !important;
+					color: #000 !important; /* Black prints faster:
+																		 http://www.sanbeiji.com/archives/953 */
+					box-shadow: none !important;
+					text-shadow: none !important;
+			}
+
+			a,
+			a:visited {
+					text-decoration: underline;
+			}
+
+			a[href]:after {
+					content: " (" attr(href) ")";
+			}
+
+			abbr[title]:after {
+					content: " (" attr(title) ")";
+			}
+
+			/*
+			 * Don't show links that are fragment identifiers,
+			 * or use the `javascript:` pseudo protocol
+			 */
+
+			a[href^="#"]:after,
+			a[href^="javascript:"]:after {
+					content: "";
+			}
+
+			pre,
+			blockquote {
+					border: 1px solid #999;
+					page-break-inside: avoid;
+			}
+
+			/*
+			 * Printing Tables:
+			 * http://css-discuss.incutio.com/wiki/Printing_Tables
+			 */
+
+			thead {
+					display: table-header-group;
+			}
+
+			tr,
+			img {
+					page-break-inside: avoid;
+			}
+
+			img {
+					max-width: 100% !important;
+			}
+
+			p,
+			h2,
+			h3 {
+					orphans: 3;
+					widows: 3;
+			}
+
+			h2,
+			h3 {
+					page-break-after: avoid;
+			}
+	}
+	</style>
+	<script type="text/javascript">
+
+  function submit()
+	{
+		var handle = document.getElementById("handleBox").value;
+		var requestBody = document.getElementById("requestBox").value;
+
+		var method = "post";
+		if(handle.includes("person") || handle.includes("event"))
+		{
+			method = "get";
+		}
+
+		send(handle,requestBody, method);
+		return false;
+	}
+
+	function send(path, params, method)
+	{
+		var obj = new XMLHttpRequest();
+
+		obj.onreadystatechange = function () {
+			var response = obj.responseText;
+
+			if (response) {
+				// Try a few possible field types from the user
+				console.log(response);
+
+				var responseJson = JSON.parse(response);
+				if (responseJson.authToken) {
+					document.getElementById("authToken").value = responseJson.authToken;
+				}
+				else if (responseJson.authtoken) {
+					document.getElementById("authToken").value = responseJson.authtoken;
+				}
+				else if (responseJson.auth) {
+					document.getElementById("authToken").value = responseJson.auth;
+				}
+				else if (responseJson.token) {
+					document.getElementById("authToken").value = responseJson.token;
+				}
+
+				document.getElementById("response").value = formatJson(response);
+			}
+		};
+
+		obj.open(method,path,false);
+		obj.setRequestHeader("Content-Type", "application/json");
+		obj.send(params);
+	}
+
+	function formatJson(inputText){
+		var temp = "";
+		var indent = 0;
+		for(var i in inputText)
+		{
+			var char = inputText[i];
+			if(char != null)
+			{
+				if(char === ']' || char === '}')
+				{
+					temp += "\n";
+					indent--;
+					for(var j = 0; j < indent; j++)
+					{
+						temp += '\t';
+					}
+
+				}
+
+				temp += char;
+
+				if (char === ',')
+				{
+					temp += "\n";
+
+					for(j = 0; j < indent; j++)
+					{
+						temp += '\t';
+					}
+
+				}
+				if(char === '{' || char === '[')
+				{
+					temp += "\n";
+					indent++;
+					for(j = 0; j < indent; j++)
+					{
+						temp += '\t';
+					}
+				}
+			}
+		}
+
+		return temp;
+	}
+
+  function login(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/login";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"playerID\",\"password\":\"password\"}");
+  }
+
+  function logout(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/logout";
+		document.getElementById("requestBox").value = formatJson("{}");
+  }
+
+  function checkStatus(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/checkStatus";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\"}");
+  }
+
+	function getPlayerShouldPlay(){
+		window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/getPlayerShouldPlay";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\"}");
+	}
+
+  function getMatrix(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/getMatrix";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\"}");
+  }
+
+  function getIsChatEnabled(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/getIsChatEnabled";
+  }
+
+  function sendChatMsg(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/sendChatMsg";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\",\"msg\":\"message\"}");
+  }
+
+  function retrieveMsgs(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/retrieveMsgs";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\"}");
+  }
+
+  function submitChoice(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/submitChoice";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\",\"choice\":\"0\"}");
+  }
+
+  function getRoundResults(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/getRoundResults";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\"}");
+  }
+
+  function getGameResults(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/getGameResults";
+		document.getElementById("requestBox").value = formatJson("{\"playerID\":\"player2\"}");
+  }
+
+  function getSessionResults(){
+    window.scrollTo(0,document.body.scrollHeight);
+		document.getElementById("handleBox").value = "/getSessionResults";
+		document.getElementById("requestBox").value = formatJson("{}");
+  }
+
+	function getServerSchedule(){
+		document.getElementById("handleBox").value = "/getServerSchedule";
+	}
+
+</script>
+</head>
+<body>
+	<div style="text-align:center;">
+
+	</div>
+	<div>
+				<div style="border: 2px solid black; margin:5px;">
+					<h1 style="padding-left:1cm; text-decoration: underline;">Commands</h1>
+					<ul>
+						<li>
+							<a href="javascript:login()" >/login</a>
+						</li>
+						<li>
+							<a href="javascript:logout()">/logout</a>
+						</li>
+            <li>
+							<a href="javascript:checkStatus()">/checkStatus</a>
+						</li>
+						<li>
+							<a href="javascript:getPlayerShouldPlay()">/getPlayerShouldPlay</a>
+						</li>
+            <li>
+							<a href="javascript:getMatrix()">/getMatrix</a>
+						</li>
+            <li>
+							<a href="javascript:getIsChatEnabled()">/getIsChatEnabled</a>
+						</li>
+            <li>
+							<a href="javascript:sendChatMsg()">/sendChatMsg</a>
+						</li>
+            <li>
+              <a href="javascript:retrieveMsgs()">/retrieveMsgs</a>
+            </li>
+            <li>
+							<a href="javascript:submitChoice()">/submitChoice</a>
+						</li>
+            <li>
+							<a href="javascript:getRoundResults()">/getRoundResults</a>
+						</li>
+            <li>
+							<a href="javascript:getGameResults()">/getGameResults</a>
+						</li>
+            <li>
+							<a href="javascript:getSessionResults()">/getSessionResults</a>
+						</li>
+						<li>
+							<a href="javascript:getServerSchedule()">/getServerSchedule</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="w3-row forumDiv">
+				<div class="w3-col m4">
+					Handle:<input type="text" id="handleBox" name="handleBox" style="width: 400px">
+				</div>
+        <div class="w3-col m5">
+					<input type="button" name="Submit" value="Submit" onclick="submit()">
+				</div>
+			</div>
+			<div class="w3-row" style="margin:10px;">
+				<p class="w3-col w3-container center" style="width:3%"/>
+				<div class="w3-col w3-container bottom" style="width:45%">
+					Request Body: <textarea type="text" id="requestBox" name="requestBox" class="requestBody"></textarea>
+				</div>
+				<p class="w3-col w3-container center" style="width:3%"/>
+				<div class="w3-col w3-container bottom" style="width:45%">
+					Response From the server: <textarea type="text" id="response" class="responseBody" readonly></textarea>
+					<div>
+						<p class="w3-col w3-container center" style="width:3%"/>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

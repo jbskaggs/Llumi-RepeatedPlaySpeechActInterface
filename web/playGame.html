@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html class="no-js" lang="" style="color:#222;line-height: 1.4;">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Play Game</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/main.css">
+
+		<style>
+			a:hover{
+				text-decoration: none;
+			}
+
+			.header{
+				position:relative;
+				height:10vh;
+				background-color: transparent;
+			}
+			.selected{
+				background: #C2C2C2 !important;
+			}
+
+			.container{
+				max-width: 2500px
+			}
+			.gameboard{
+				margin:none;
+			}
+			.boardHeader{
+				min-height: 5vh;
+				border: none;
+			}
+
+			.me{
+				color:#0064F9;
+			}
+
+			.notMe{
+					color: #FE7223;
+			}
+
+			.unsubme{
+				transition: background-color 0.2s ease;
+				color: white;
+				background: #0064F9;
+				padding-right: 8px;
+				padding-left: 8px;
+				padding-bottom: 3px;
+			}
+
+			.unsubme:hover{
+				background: #0135B8;
+			}
+
+			.unsubnotMe{
+				transition: background-color 0.2s ease;
+				color: #FE7223;
+				height: 53px;
+			}
+
+			.unsubnotMe_AB{
+				transition: background-color 0.2s ease;
+				color: #0064F9;
+				padding-right: 4px;
+				padding-left: 4px;
+				padding-bottom: 10px;
+				padding-top: 30px;
+			}
+
+			.boardRow{
+				min-height: 10vh;
+				border: solid 1px #D9D9D9;
+			}
+			.emptyboardRow{
+				min-height: 10vh;
+				border: none;
+				padding-left: 0px
+			}
+			.colX{
+				background-color: #ABEFFF;
+			}
+
+			.rowX{
+				background-color: #E8E8E8;
+			}
+
+			ul {
+				list-style: none;
+			}
+			li {
+				background: #fff;
+				width: 500px;
+				min-height: 30px;
+				padding: 10px;
+				display: flex;
+				align-items: center;
+				margin: 0px;
+			}
+
+			.noBorder{
+				border: 0;
+				box-shadow: none;
+			}
+			#loader{
+			    height: 1em;
+			   	margin: 0 auto;
+			    overflow: visible;
+			    position: absolute;
+			    z-index: 9999;
+				left: 20%
+			}
+
+			/*History*/
+			tbody {
+			  display: block; /* to enable vertical scrolling */
+			  max-height: 400px; /* e.g. */
+			  overflow-y: scroll; /* keeps the scrollbar even if it doesn't need it; display purpose */
+			}
+
+			th, td {
+			  width: 32%; /* to enable "word-break: break-all" */
+			  padding: 5px;
+			}
+
+			th.sm-col, td.sm-col{
+			  width: 11%; /* to enable "word-break: break-all" */
+			  padding: 5px;
+			}
+
+			th.r-col, td.r-col
+			{
+			  width: 3%; /* to enable "word-break: break-all" */
+			  padding: 5px;
+			}
+
+			tr {
+			  display: table; /* display purpose; th's border */
+			  width: 100%;
+			  box-sizing: border-box; /* because of the border (Chrome needs this line, but not FF) */
+			}
+
+			td {
+			  text-align: center;
+			  border-bottom: none;
+			  border-left: none;
+			}
+
+			/*Hide scrollbar*/
+			::-webkit-scrollbar {
+    			display: none;
+			}
+
+			/*CSS for Conversation*/
+			.msgsBox{
+				overflow-y: scroll;
+				overflow-x: scroll;
+				height: 65vh;
+				word-wrap: break-word;
+				border: solid 1px #D9D9D9;
+			}
+
+			.partnerMsgWrap{
+				float: left;
+				clear:left;
+				max-width: 75%;
+				min-width: 75%;
+			}
+
+			.partnerMsgDisplay{
+				max-width: 100%;
+				float: left;
+				clear: left;
+				text-align: left;
+				border-radius: 6px;
+				/* border: 2px solid #FE7223; */
+				background-color: #E5E5EA;
+				color: black;
+				padding-top: 7px;
+				padding-bottom: 7px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			.playerMsgWrap{
+				float: right;
+				clear:right;
+				max-width: 75%;
+				min-width: 75%;
+			}
+
+			.playerMsgDisplay{
+				max-width: 100%;
+				text-align:left;
+				float: right;
+				clear:right;
+				border-radius:6px;
+				background-color:#31A3F9;
+				color: white;
+				padding-top: 7px;
+				padding-bottom: 7px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			#chatbox {
+				overflow:   auto;
+				position:   relative;
+				max-height: 300px;
+			}
+			#chatmessages {
+				overflow:   auto;
+				position:   absolute;
+				width: 100%;
+				max-height: 300px;
+			}
+
+			/*Messages*/
+			[draggable] {
+  			  -moz-user-select: none;
+			  -khtml-user-select: none;
+			  -webkit-user-select: none;
+			  user-select: none;
+			  /* Required to make elements draggable in old WebKit */
+			  -khtml-user-drag: element;
+			  -webkit-user-drag: element;
+			}
+
+			#msgs {
+			  list-style-type: none;
+			  padding-left: 0px;
+			}
+
+			.msg {
+			  width: inherit;
+			  padding-bottom: 5px;
+			  padding-top: 5px;
+			  text-align: center;
+			  cursor: move;
+			}
+			.msg header {
+			  width: 400px;
+			  color: black;
+			  border-bottom: 1px solid #ddd;
+			  border-radius: 10px;
+			  border: 2px solid #666666;
+			  padding: 3px;
+			}
+
+			.msg.over {
+			  //border: 2px dashed #000;
+			  border-top: 2px solid blue;
+			}
+
+	</style>
+
+	<script type="text/javascript">
+	var hist_matrix;
+	var submittedMsg = false;
+	var isChatEnabled = false;
+	var roundCounter = 0;
+	var partner = "";
+	var me;
+	var playerRoundMsg;
+	var partnerRoundMsg;
+	var global_row;
+
+	//utility function for String
+	String.prototype.replaceAt=function(index, replacement) {
+    	return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+	}
+
+	//Give warning for reloading
+	window.onbeforeunload = function(event) {
+    	event.returnValue = "Changes you made may not be saved.";
+	};
+
+	$(document).ready(function(){
+		/*
+		var elmnt = document.getElementById("row6");
+		console.log(elmnt)
+		elmnt.scrollIntoView();
+		*/
+
+		getPlayerShouldPlay();
+		getMatrix()
+
+		if (me == 2){
+			document.getElementById("optionA").innerHTML = "<h1>X<h1>"
+			document.getElementById("optionB").innerHTML = "<h1>Y<h1>"
+			document.getElementById("optionX").innerHTML = "<h1>A<h1>"
+			document.getElementById("optionY").innerHTML = "<h1>B<h1>"
+		}
+
+		$('#optionA').click(function(){
+			var table = document.getElementById("hist_table");
+			table =  table.getElementsByTagName('tbody')[0];
+
+			var lastRow = table.getElementsByTagName('tr');
+			lastRow = lastRow[lastRow.length-1]
+			lastRow = lastRow.childNodes
+
+			if (me == 2){
+				lastRow[3].innerHTML = "X"
+			}
+			else{
+				lastRow[3].innerHTML = "A"
+			}
+
+			document.getElementById("optionA").style.background = "#9CE81B"
+			document.getElementById("optionB").style.background = "#DBDBDB"
+			document.getElementById("optionA").disabled = true
+			document.getElementById("optionB").disabled = true
+
+			setTimeout(function(){
+				document.getElementById("square4").style.background = "#FFFFFF"
+				submitChoice(0)
+			}, 1000);
+		});
+
+		$('#optionB').click(function(){
+			var table = document.getElementById("hist_table");
+			table =  table.getElementsByTagName('tbody')[0];
+
+			var lastRow = table.getElementsByTagName('tr');
+			lastRow = lastRow[lastRow.length-1]
+			lastRow = lastRow.childNodes
+
+			if (me == 2){
+				lastRow[3].innerHTML = "Y"
+			}
+			else{
+				lastRow[3].innerHTML = "B"
+			}
+
+  			document.getElementById("optionB").style.background = "#9CE81B"
+			document.getElementById("optionA").style.background = "#DBDBDB"
+			document.getElementById("optionA").disabled = true
+			document.getElementById("optionB").disabled = true
+
+			setTimeout(function(){
+				document.getElementById("square4").style.background = "#FFFFFF"
+				submitChoice(1)
+			}, 1000);
+		});
+
+		/*
+		$('#noRecButton').click(function(){
+			sendMsg('-','-')
+		});
+
+		$('#recButton').click(function(){
+			console.log("playerNum:",localStorage["playerNum"]);
+
+			meRec0 = document.getElementById('meRec0').checked
+			pRec0 = document.getElementById('pRec0').checked
+
+			if(meRec0 == true && pRec0 == true){
+				sendMsg(0,0)
+			}
+			else if(meRec0 == false && pRec0 == true){
+				sendMsg(1,0)
+			}
+			else if(meRec0 == true && pRec0 == false){
+				sendMsg(0,1)
+			}
+			else{
+				sendMsg(1,1)
+			}
+		});
+		*/
+	});
+
+	window.setInterval(function(){
+			getPlayerShouldPlay()
+			checkStatus()
+			getRoundResults()
+			if (isChatEnabled){
+				checkMessageStatus()
+			}
+	}, 2000);
+
+		function sendMsg(msg){
+			if (msg === ""){
+				msg = " ";
+			}
+			var path = "/sendChatMsg";
+			var method = "post";
+			var params = "{\"playerID\":\""+localStorage["playerID"]+ "\", \"msg\":\"" + msg + "\"}";
+
+			var obj = new XMLHttpRequest();
+
+			obj.onreadystatechange = function () {
+				var response = obj.responseText;
+				if (response) {
+					var responseJson = JSON.parse(response);
+
+					//console.log(responseJson);
+
+				}
+			};
+
+			obj.open(method,path,false);
+			obj.setRequestHeader("Content-Type", "application/json");
+			obj.send(params);
+		}
+
+		function retrieveMsg(){
+			var path = "/retrieveMsgs";
+			var method = "post";
+			var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+			var obj = new XMLHttpRequest();
+
+			obj.onreadystatechange = function () {
+				var response = obj.responseText;
+				if (response) {
+					var msg = JSON.parse(response);
+					msg = msg.chatMsgs
+					console.log(msg)
+					for (var i = msg.length-1; i >= 0; i--) {
+						if (msg[i].playerID != localStorage["playerID"]) {
+							msg = msg[i].message
+							break
+						}
+					}
+					processRecMsg(msg)
+					//console.log(recRec);
+					//document.getElementById("meRecRec").innerHTML = "You: " + recRec.message[1]
+					//document.getElementById("pRecRec").innerHTML = "Partner: " + recRec.message[0]
+				}
+			};
+
+			obj.open(method,path,false);
+			obj.setRequestHeader("Content-Type", "application/json");
+			console.log(params);
+			obj.send(params);
+		}
+
+		function checkMessageStatus()
+	    {
+	      var path = "/checkMessageStatus";
+	      var method = "post";
+	      var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+	      var obj = new XMLHttpRequest();
+
+	      obj.onreadystatechange = function () {
+	        var response = obj.responseText;
+	        if (response) {
+	          	var responseJson = JSON.parse(response);
+
+				//console.log(responseJson.status)
+				//console.log(responseJson);
+				if(responseJson.status == "Recommendation is ready" && submittedMsg){
+					retrieveMsg();
+				}
+	        }
+	      };
+
+	      obj.open(method,path,false);
+	      obj.setRequestHeader("Content-Type", "application/json");
+	      obj.send(params);
+	      return false;
+	    }
+
+	function getPlayerShouldPlay()
+	{
+	var path = "/getPlayerShouldPlay";
+	var method = "post";
+	var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+	var obj = new XMLHttpRequest();
+
+	obj.onreadystatechange = function () {
+	  var response = obj.responseText;
+	  if (response) {
+	    var responseJson = JSON.parse(response);
+
+		partner = responseJson.partner;
+	    if(responseJson.playerShouldPlay == true){
+						return true
+	    }
+					else{
+						return false
+					}
+
+	  }
+	};
+
+	obj.open(method,path,false);
+	obj.setRequestHeader("Content-Type", "application/json");
+	obj.send(params);
+	}
+
+	function getMatrix()
+	{
+	var path = "/getMatrix";
+	var method = "post";
+	var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+	var obj = new XMLHttpRequest();
+
+	obj.onreadystatechange = function () {
+	  var response = obj.responseText;
+	  if (response) {
+	    var responseJson = JSON.parse(response);
+
+		matrix = responseJson.matrix
+		hist_matrix = matrix
+		console.log(responseJson)
+
+		me = responseJson.playerNum
+		if(responseJson.playerNum == 1){
+			document.getElementById("1f").innerHTML = matrix[0][0][0]
+			document.getElementById("1b").innerHTML = matrix[0][0][1]
+			document.getElementById("2f").innerHTML = matrix[0][1][0]
+			document.getElementById("2b").innerHTML = matrix[0][1][1]
+			document.getElementById("3f").innerHTML = matrix[1][0][0]
+			document.getElementById("3b").innerHTML = matrix[1][0][1]
+			document.getElementById("4f").innerHTML = matrix[1][1][0]
+			document.getElementById("4b").innerHTML = matrix[1][1][1]
+		}
+		else{
+			document.getElementById("1f").innerHTML = matrix[0][0][1]
+			document.getElementById("1b").innerHTML = matrix[0][0][0]
+			document.getElementById("2f").innerHTML = matrix[1][0][1]
+			document.getElementById("2b").innerHTML = matrix[1][0][0]
+			document.getElementById("3f").innerHTML = matrix[0][1][1]
+			document.getElementById("3b").innerHTML = matrix[0][1][0]
+			document.getElementById("4f").innerHTML = matrix[1][1][1]
+			document.getElementById("4b").innerHTML = matrix[1][1][0]
+		}
+		document.getElementById("optionA").disabled = false
+		document.getElementById("optionB").disabled = false
+		document.getElementById("optionA").style.background = "#0064F9"
+		document.getElementById("optionB").style.background = "#0064F9"
+
+		setDefaultMsg();
+		addRowBefore();
+		playerRoundMsg = ""
+		partnerRoundMsg = ""
+		//document.getElementById("meRecRec").innerHTML = "You: "
+		//document.getElementById("pRecRec").innerHTML = "Partner: "
+
+		setupChat()
+		if (isChatEnabled) {
+			document.getElementById("optionA").disabled = true
+			document.getElementById("optionB").disabled = true
+			document.getElementById("optionA").style.background = "#DBDBDB"
+			document.getElementById("optionB").style.background = "#DBDBDB"
+
+			var buttons = $(".cheaptalk-button")
+			for (let button of buttons) {
+				button.disabled = false
+			}
+		}
+	  }
+	};
+
+	obj.open(method,path,false);
+	obj.setRequestHeader("Content-Type", "application/json");
+	obj.send(params);
+	return false;
+	}
+
+	function setupChat(){
+	  var path = "/getIsChatEnabled";
+	  var method = "post";
+	  var params = "";//"{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+	  var obj = new XMLHttpRequest();
+
+	  obj.onreadystatechange = function () {
+	    var response = obj.responseText;
+	    if (response) {
+	      var responseJson = JSON.parse(response);
+
+			//console.log(responseJson);
+		 	if (responseJson.isEnabled != true) {
+				//Disable chatbox
+				var chatbox = document.getElementById("cheaptalk");
+				chatbox.style.display = "none";
+			}
+			else {
+				isChatEnabled = true;
+			}
+	  	}
+	}
+
+	  obj.open(method,path,false);
+	  obj.setRequestHeader("Content-Type", "application/json");
+	  obj.send(params);
+	  return false;
+	}
+
+		/*
+		function handleRecommendationDivs(roundNum){
+			if(roundNum%2 == 0){
+				if(localStorage["playerNum"]==1){
+					document.getElementById("giveRecommendations").style.display = "inline"
+					document.getElementById("receiveRecommendations").style.display = "none"
+				}
+				else{
+					document.getElementById("giveRecommendations").style.display = "none"
+					document.getElementById("receiveRecommendations").style.display = "inline"
+				}
+			}
+			else{
+				if(localStorage["playerNum"]!=1){
+					document.getElementById("giveRecommendations").style.display = "inline"
+					document.getElementById("receiveRecommendations").style.display = "none"
+				}
+				else{
+					document.getElementById("giveRecommendations").style.display = "none"
+					document.getElementById("receiveRecommendations").style.display = "inline"
+				}
+			}
+		}
+		*/
+
+	function submitChoice(choice)
+	{
+		document.getElementById("gameboard").style.opacity = 0.5
+		document.getElementById("loader").innerHTML = "<br><br><img src='./images/ajax-loader.gif'/>" +
+															"<br><i>Waiting for partner to select action</i>"
+		document.getElementById("loader").style.opacity = 1
+
+		var path = "/submitChoice";
+		var method = "post";
+		var params = "{\"playerID\":\"" + localStorage["playerID"] + "\",\"choice\":\"" + choice + "\"}";
+
+
+			//console.log(params);
+			var obj = new XMLHttpRequest();
+
+			obj.onreadystatechange = function () {
+			  var response = obj.responseText;
+			  if (response) {
+			    var responseJson = JSON.parse(response);
+
+			    //console.log(responseJson);
+					if(responseJson.hasOwnProperty("errorMsg")){
+							alert(responseJson.errorMsg)
+					}
+					else{
+						if(responseJson.msg != "successfully submitted"){
+							// alert(responseJson.msg)
+							checkStatus()
+						}
+						else{
+							getRoundResults()
+							//checkStatus()
+						}
+					}
+			  }
+			};
+
+			obj.open(method,path,false);
+			obj.setRequestHeader("Content-Type", "application/json");
+			obj.send(params);
+			return false;
+
+	}
+
+	function checkStatus()
+	{
+		var path = "/checkStatus";
+		var method = "post";
+		var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+		var obj = new XMLHttpRequest();
+
+		obj.onreadystatechange = function () {
+		  var response = obj.responseText;
+		  if (response) {
+		    var responseJson = JSON.parse(response);
+
+						// console.log(responseJson);
+				if(responseJson.status == "not logged in"){
+					window.onbeforeunload = null;
+					setTimeout(function(){
+						window.location.pathname = "waitAfterGame.html"
+					}, 2000);
+
+				}
+		  }
+		};
+
+		obj.open(method,path,false);
+		obj.setRequestHeader("Content-Type", "application/json");
+		obj.send(params);
+		return false;
+	}
+
+		function getRoundResults()
+		{
+			var path = "/getRoundResults";
+			var method = "post";
+			var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+			var obj = new XMLHttpRequest();
+
+			obj.onreadystatechange = function () {
+				var response = obj.responseText;
+				if (response) {
+					var responseJson = JSON.parse(response);
+					//console.log(responseJson);
+					handleGetRoundResults(responseJson)
+				}
+			};
+
+			obj.open(method,path,false);
+			obj.setRequestHeader("Content-Type", "application/json");
+			obj.send(params);
+		}
+
+		function handleGetRoundResults(responseJson){
+			//console.log("handleGetRoundResults")
+			if(responseJson === null){
+
+			}
+			/*
+			else if(!responseJson.hasOwnProperty("player1")){
+				return
+			}
+			*/
+			else if(me == 1){
+				//document.getElementById("roundPayoff").innerHTML = responseJson.p1Payoff
+				//show off the square that won
+				getGameResults(responseJson)
+			}
+			else{
+				//document.getElementById("roundPayoff").innerHTML = responseJson.p2Payoff
+				//show off the square that won
+				getGameResults(responseJson)
+			}
+		}
+
+		function getGameResults(roundJson)
+		{
+			var path = "/getGameResults";
+			var method = "post";
+			var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+			var obj = new XMLHttpRequest();
+
+			obj.onreadystatechange = function () {
+				var response = obj.responseText;
+				if (response) {
+					var responseJson = JSON.parse(response);
+
+					if(roundJson != null && roundJson.roundNum == roundCounter)
+						handleGetGameResults(responseJson, roundJson)
+				}
+			};
+
+			obj.open(method,path,false);
+			obj.setRequestHeader("Content-Type", "application/json");
+			obj.send(params);
+		}
+
+		function handleGetGameResults(responseJson, roundJson){
+		  var path = "/checkSubmittedStatus";
+	          var method = "post";
+	          var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+	          var obj = new XMLHttpRequest();
+
+			  //console.log(roundJson);
+			  if(responseJson === null){
+				  return
+			  }
+
+			  console.log(roundJson)
+			  console.log(roundCounter)
+	          obj.onreadystatechange = function () {
+	            var response = obj.responseText;
+	            if (response) {
+				var responseJsonStatus = JSON.parse(response);
+
+				console.log("State changed!!!")
+				console.log(responseJsonStatus.status)
+				//if(roundJson != null && roundJson.roundNum == roundCounter){
+					if(responseJsonStatus.status == "Submitted"){
+						document.getElementById("loader").innerHTML = "";
+						document.getElementById("gameboard").style.opacity = 1;
+						document.getElementById("moneyEarned").innerHTML = "$" + Math.round(responseJson.summedPayoff)/100
+
+						if(roundJson.p1Choice == 0 && roundJson.p2Choice == 0){
+								document.getElementById("square1").style.background = "#9CE81B"
+								setTimeout(function(){
+									document.getElementById("square1").style.background = "#FFFFFF"
+									getMatrix()
+								}, 1000);
+						}
+						else if(roundJson.p1Choice == 1 && roundJson.p2Choice == 1){
+								document.getElementById("square4").style.background = "#9CE81B"
+								setTimeout(function(){
+									document.getElementById("square4").style.background = "#FFFFFF"
+									getMatrix()
+								}, 1000);
+						}
+						else {
+							if (me == 1){
+								if(roundJson.p1Choice == 0 && roundJson.p2Choice == 1){
+										document.getElementById("square2").style.background = "#9CE81B"
+										setTimeout(function(){
+											document.getElementById("square2").style.background = "#FFFFFF"
+											getMatrix()
+										}, 1000);
+								}
+								else if(roundJson.p1Choice == 1 && roundJson.p2Choice == 0){
+										document.getElementById("square3").style.background = "#9CE81B"
+										setTimeout(function(){
+											document.getElementById("square3").style.background = "#FFFFFF"
+											getMatrix()
+										}, 1000);
+								}
+							}
+							else {
+								if(roundJson.p1Choice == 0 && roundJson.p2Choice == 1){
+										document.getElementById("square3").style.background = "#9CE81B"
+										setTimeout(function(){
+											document.getElementById("square3").style.background = "#FFFFFF"
+											getMatrix()
+										}, 1000);
+								}
+								else if(roundJson.p1Choice == 1 && roundJson.p2Choice == 0){
+										document.getElementById("square2").style.background = "#9CE81B"
+										setTimeout(function(){
+											document.getElementById("square2").style.background = "#FFFFFF"
+											getMatrix()
+										}, 1000);
+								}
+							}
+						}
+						addRowAfter(roundJson)
+						checkStatus()
+					}
+				//}
+
+	            }
+	          };
+
+	          obj.open(method,path,false);
+	          obj.setRequestHeader("Content-Type", "application/json");
+	          obj.send(params);
+	          return false;
+
+		}
+
+		//Code for History Table
+		function addRowBefore(roundJson) {
+			roundCounter += 1;
+
+			var table = document.getElementById("hist_table");
+			table =  table.getElementsByTagName('tbody')[0];
+
+			var row = table.insertRow(-1);
+			row.setAttribute("id","round" + roundCounter + "Msg");
+			global_row = row;
+
+			var cellExpand = row.insertCell(0);
+			cellExpand.setAttribute("class","sm-col")
+
+			/*
+			var cellNum = row.insertCell(1);
+			cellNum.setAttribute("class","r-col")
+			cellNum.innerHTML = roundCounter;
+			*/
+
+			var cellMsg0 = row.insertCell(1);
+			cellMsg0.setAttribute("style","text-align:left");
+			var cellMsg1 = row.insertCell(2);
+			cellMsg1.setAttribute("style","text-align:left");
+
+			var cellAct0 = row.insertCell(3);
+			cellAct0.setAttribute("class","sm-col")
+
+			var cellAct1 = row.insertCell(4);
+			cellAct1.setAttribute("class","sm-col")
+
+			//var expandContent = "button class = \"round" + roundCounter + "\" onclick=showMatrix(this) style=\"display:none\"> Expand </button> \n"
+
+			cellExpand.innerHTML = "Current round";//expandContent;
+
+			row.scrollIntoView();
+		}
+
+		function addRowAfter(roundJson) {
+			var table = document.getElementById("hist_table");
+			table =  table.getElementsByTagName('tbody')[0];
+
+			var lastRow = table.getElementsByTagName('tr');
+			lastRow = lastRow[lastRow.length-1]
+			lastRow = lastRow.childNodes
+
+			//lastRow[0].firstChild.style = "block"
+			lastRow[0].innerHTML = "<button class = \"round" + roundCounter + "\" onclick=showMatrix(this)> Expand </button> \n"
+
+			if(me == 1){
+				if (roundJson.p2Choice == 0) {
+					lastRow[4].innerHTML = "X";
+				}
+				else {
+					lastRow[4].innerHTML = "Y";
+				}
+			}
+			else {
+				if (roundJson.p1Choice == 0) {
+					lastRow[4].innerHTML = "A";
+				}
+				else {
+					lastRow[4].innerHTML = "B";
+				}
+			}
+
+			//CREATING HIDDEN GAME MATRIX
+			var round = "hist"+roundJson.roundNum
+
+			var row = table.insertRow(-1);
+			row.setAttribute("style","display:none")
+			row.setAttribute("id","round" + roundJson.roundNum)
+
+			var hiddenContent =
+			//"<div class = \"round" + roundJson.roundNum + "\" style = \"display:none\" > \n" +
+				"<div class = \"row\"> \n" +
+					"<div class = \"w-15 col-lg-2 col-md-2 col-sm-2 col-xs-2 boardHeader\" ></div> \n" +
+					"<div class = \"w-30 col-lg-2 col-md-2 col-sm-2 col-xs-2 boardHeader unsubnotMe\"> <h5> X </h5> </div> \n" +
+					"<div class = \"w-30 col-lg-2 col-md-2 col-sm-2 col-xs-2 boardHeader unsubnotMe\"> <h5> Y </h5> </div> \n" +
+				"</div> \n" +
+
+				"<div class = \"row\"> \n" +
+					"<div class = \"col-lg-2 col-md-2 col-sm-2 col-xs-2 boardHeader unsubnotMe_AB\"> <h5> A </h5> </div> \n" +
+					"<div class = \"col-lg-2 col-md-2 col-sm-2 col-xs-2 boardRow\" id=\"" + round + "_square1\"> \n" +
+						"<br> \n" +
+						"<div class=\"row\"> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<br> \n" +
+								"<h5 class=\"me\" id=\"" + round + "_1f\">a</h5> \n" +
+							"</div> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<h6 class=\"notMe\" id=\"" + round + "_1b\">b</h6> \n" +
+							"</div> \n" +
+						"</div> \n" +
+					"</div> \n" +
+
+					"<div class = \"col-lg-2 col-md-2 col-sm-2 col-xs-2 boardRow\" id=\"" + round + "_square2\"> \n" +
+						"<br> \n" +
+						"<div class=\"row\"> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<br> \n " +
+								"<h5 class=\"me\" id=\"" + round + "_2f\">c</h5> \n" +
+							"</div> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<h6 class=\"notMe\" id=\"" + round + "_2b\">d</h6> \n" +
+							"</div> \n" +
+						"</div> \n" +
+					"</div> \n" +
+				"</div> \n" +
+
+				"<div class=\"row\"> \n" +
+					"<br> \n" +
+					"<br> \n" +
+					"<div class = \"col-lg-2 col-md-2 col-sm-2 col-xs-2 boardHeader unsubnotMe_AB\"> <h5> B </h5> </div> \n" +
+					"<div class = \"col-lg-2 col-md-2 col-sm-2 col-xs-2 boardRow\" id=\"" + round + "_square3\"> \n" +
+						"<br> \n" +
+						"<div class=\"row\"> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<br> \n" +
+								"<h5 class=\"me\" id=\"" + round + "_3f\">e</h5> \n" +
+							"</div> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<h6 class=\"notMe\" id=\"" + round + "_3b\">f</h6> \n" +
+							"</div> \n" +
+						"</div> \n" +
+					"</div> \n" +
+
+					"<div class = \"col-lg-2 col-md-2 col-sm-2 col-xs-2 boardRow\" id=\"" + round + "_square4\"> \n" +
+						"<br> \n" +
+						"<div class=\"row\"> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<br> \n" +
+								"<h5 class=\"me\" id=\"" + round + "_4f\">g</h5> \n" +
+							"</div> \n" +
+							"<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-6\"> \n" +
+								"<h6 class=\"notMe\" id=\"" + round + "_4b\">h</h6> \n" +
+							"</div> \n" +
+						"</div> \n" +
+					"</div> \n" +
+				"</div> \n"
+			//"</div> \n";
+
+			cellSpan = row.insertCell()
+			cellSpan.setAttribute("colspan","6")
+			cellSpan.setAttribute("style","border:none")
+			cellSpan.innerHTML = hiddenContent
+
+			fillHistMatrix(roundJson)
+		}
+
+		function showMatrix(round) {
+			/*
+			if (!e) var e = window.event;
+
+			var t_s = e.toElement.innerText;
+			var temp = "round" + t_s[t_s.length-1];
+			*/
+			var temp = round.className
+			var msgRow = temp + "Msg"
+
+			if (document.getElementById(temp).style.display == "block") {
+				round.innerHTML = "Expand"
+				document.getElementById(temp).style.display = "none";
+			}
+			else {
+				round.innerHTML = "Hide"
+				document.getElementById(temp).style.display = "block";
+				document.getElementById(msgRow).scrollIntoView();
+			}
+		}
+
+		function fillHistMatrix(roundJson){
+			var round = "hist"+roundJson.roundNum
+			if(roundJson.p1Choice == 0 && roundJson.p2Choice == 0){
+				document.getElementById(round+"_square1").style.background = "#9CE81B"
+			}
+			else if(roundJson.p1Choice == 1 && roundJson.p2Choice == 1){
+					document.getElementById(round+"_square4").style.background = "#9CE81B"
+			}
+
+			if(me == 1){
+				document.getElementById(round+"_1f").innerHTML = hist_matrix[0][0][0]
+				document.getElementById(round+"_1b").innerHTML = hist_matrix[0][0][1]
+				document.getElementById(round+"_2f").innerHTML = hist_matrix[0][1][0]
+				document.getElementById(round+"_2b").innerHTML = hist_matrix[0][1][1]
+				document.getElementById(round+"_3f").innerHTML = hist_matrix[1][0][0]
+				document.getElementById(round+"_3b").innerHTML = hist_matrix[1][0][1]
+				document.getElementById(round+"_4f").innerHTML = hist_matrix[1][1][0]
+				document.getElementById(round+"_4b").innerHTML = hist_matrix[1][1][1]
+				if(roundJson.p1Choice == 0 && roundJson.p2Choice == 1){
+					document.getElementById(round+"_square2").style.background = "#9CE81B"
+				}
+				else if(roundJson.p1Choice == 1 && roundJson.p2Choice == 0){
+					document.getElementById(round+"_square3").style.background = "#9CE81B"
+				}
+			}
+			else{
+				document.getElementById(round+"_1f").innerHTML = hist_matrix[0][0][1]
+				document.getElementById(round+"_1b").innerHTML = hist_matrix[0][0][0]
+				document.getElementById(round+"_1b").innerHTML = hist_matrix[0][0][0]
+				document.getElementById(round+"_2f").innerHTML = hist_matrix[1][0][1]
+				document.getElementById(round+"_2b").innerHTML = hist_matrix[1][0][0]
+				document.getElementById(round+"_3f").innerHTML = hist_matrix[0][1][1]
+				document.getElementById(round+"_3b").innerHTML = hist_matrix[0][1][0]
+				document.getElementById(round+"_4f").innerHTML = hist_matrix[1][1][1]
+				document.getElementById(round+"_4b").innerHTML = hist_matrix[1][1][0]
+				if(roundJson.p1Choice == 0 && roundJson.p2Choice == 1){
+					document.getElementById(round+"_square3").style.background = "#9CE81B"
+				}
+				else if(roundJson.p1Choice == 1 && roundJson.p2Choice == 0){
+					document.getElementById(round+"_square2").style.background = "#9CE81B"
+				}
+			}
+		}
+
+		//Javascript for downdown
+		/* When the user clicks on the button,
+		toggle between hiding and showing the dropdown content */
+		/*
+		function myFunction() {
+		  document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+		// Close the dropdown menu if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+		    var dropdowns = document.getElementsByClassName("dropdown-content");
+		    var i;
+		    for (i = 0; i < dropdowns.length; i++) {
+		      var openDropdown = dropdowns[i];
+		      if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}
+		*/
+
+
+		function flip_commands(actual_msg, agent) {
+			return "human speech: " + actual_msg;
+		}
+
+		//Javascript for checkbox messages
+		function processMsg() {
+			var actual_msg = $("#msg")[0].value;
+			var display_msg = $("#msg")[0].value;
+
+			if (!partner.includes("player") && me == 1) {
+				actual_msg = display_msg;
+			}
+
+			//console.log(actual_msg)
+			setTimeout(function(){
+				sendMsg(actual_msg)
+			}, 1000);
+
+			submittedMsg = true
+
+			//Clean Actual Message Box and Checkboxes
+			// disableCheckboxes();
+
+			document.getElementById("msg").value="";
+			var buttons = $(".cheaptalk-button");
+			for (let button of buttons) {
+				button.disabled = true;
+			}
+
+			var table = document.getElementById("hist_table");
+			table =  table.getElementsByTagName('tbody')[0];
+
+			var lastRow = table.getElementsByTagName('tr');
+			lastRow = lastRow[lastRow.length-1];
+			lastRow = lastRow.childNodes;
+
+			lastRow[1].innerHTML = display_msg;
+			str = "Waiting for partner's message...";
+			lastRow[2].innerHTML = str.fontcolor("slategray");
+			global_row.scrollIntoView();
+		}
+
+		// function processNoMsg() {
+		// 	setTimeout(function(){
+		// 		sendMsg("No message. ")
+		// 	}, 1000);
+		//
+		// 	submittedMsg = true
+		//
+		// 	//Clean Actual Message Box and Checkboxes
+		// 	disableCheckboxes()
+		//
+		// 	var buttons = $(".cheaptalk-button")
+		// 	for (let button of buttons) {
+		// 		button.disabled = true
+		// 	}
+		//
+		// 	var table = document.getElementById("hist_table");
+		// 	table =  table.getElementsByTagName('tbody')[0];
+		//
+		// 	var lastRow = table.getElementsByTagName('tr');
+		// 	lastRow = lastRow[lastRow.length-1]
+		// 	lastRow = lastRow.childNodes
+		//
+		// 	lastRow[1].innerHTML = "No message"
+		// 	str = "Waiting for partner's message..."
+		// 	lastRow[2].innerHTML = str.fontcolor("slategray")
+		//
+		// }
+
+		function processRecMsg(display_msg) {
+			//Display received Message
+			if (!partner.includes("player") && me == 2) {
+				if (display_msg.indexOf("AY") != -1) {
+					var pos = display_msg.indexOf("AY")
+					display_msg = display_msg.replaceAt(pos, "BX")
+				}
+				else if (display_msg.indexOf("BX") != -1) {
+					var pos = display_msg.indexOf("BX")
+					display_msg = display_msg.replaceAt(pos, "AY")
+				}
+			}
+
+			partnerRoundMsg = display_msg.toLowerCase();
+			//partnerRoundMsg[partnerRoundMsg.length-1] = ".";
+			submittedMsg = false;
+
+			displayMsg()
+		}
+
+		function displayMsg() {
+			var table = document.getElementById("hist_table");
+			table =  table.getElementsByTagName('tbody')[0];
+
+			var lastRow = table.getElementsByTagName('tr');
+			lastRow = lastRow[lastRow.length-1]
+			lastRow = lastRow.childNodes
+
+			lastRow[2].innerHTML = partnerRoundMsg;
+
+			document.getElementById("optionA").disabled = false
+			document.getElementById("optionB").disabled = false
+			document.getElementById("optionA").style.background = "#0064F9"
+			document.getElementById("optionB").style.background = "#0064F9"
+
+			global_row.scrollIntoView()
+
+			if (!partnerRoundMsg.includes("No message")) {
+				if (partnerRoundMsg.includes("AY")) {
+					var speech_string = partnerRoundMsg.replace("AY", "A Y");
+				}
+				else if (partnerRoundMsg.includes("BY")) {
+					var speech_string = partnerRoundMsg.replace("BY", "B Y");
+				}
+				else {
+					var speech_string = partnerRoundMsg;
+				}
+				var msg = new SpeechSynthesisUtterance(speech_string);
+				window.speechSynthesis.speak(msg);
+			}
+		}
+
+		function setDefaultMsg() {
+			var checkboxes =  $(":checkbox")
+			for (let checkbox of checkboxes) {
+				checkbox.checked = false;
+				checkbox.disabled = false;
+			}
+
+			// checkboxes[0].disabled = true;
+			// document.getElementById("noopt").selected = true;
+			// document.getElementById("opt").disabled = false
+
+			//Change Message Button to No Message
+			// document.getElementById("sendMsg").innerHTML = "No message";
+
+		}
+
+		// function disableCheckboxes() {
+		// 	$("#msgs").html("");
+		//
+		// 	var checkboxes =  $(":checkbox")
+		// 	for (let checkbox of checkboxes) {
+		// 		checkbox.disabled = true;
+		// 	}
+		//
+		// 	document.getElementById("opt").disabled = true
+		// }
+
+		// function isCheckboxesEmpty() {
+		// 	var checkboxes =  $(":checkbox")
+		// 	for (let checkbox of checkboxes) {
+		// 		if (checkbox.checked == true)
+		// 			return false;
+		// 	}
+		//
+		// 	return true;
+		// }
+
+		/*******************************************************/
+		// function onClickCheckbox(checkbox) {
+		// 	if (checkbox.checked == true) {
+		// 		document.getElementById("sendMsg").innerHTML = "Send Message";
+		//
+		// 		var elems = $("div#"+checkbox.id)[0].children
+		//
+		// 		var text = elems[0].value;
+		//
+		// 		if (elems.length > 2) {
+		// 			actions = elems[1].options[elems[1].options.selectedIndex].text;
+		// 			text += " " + actions;
+		// 		}
+		//
+		// 		var msgs = document.getElementById("msgs");
+		// 		var newMsg = document.createElement("li");
+		// 		var header = document.createElement("header");
+		//
+		// 		header.innerHTML = text
+		//
+		// 		newMsg.setAttribute("class","msg");
+		// 		newMsg.setAttribute("draggable","true");
+		// 		newMsg.setAttribute("id", checkbox.id)
+		// 		newMsg.appendChild(header);
+		//
+		// 		msgs.appendChild(newMsg);
+		// 		addDnDHandlers(newMsg)
+		// 	}
+		// 	else {
+		// 		$("li#"+checkbox.id)[0].remove()
+		//
+		// 		// if (isCheckboxesEmpty()) {
+		// 		// 	document.getElementById("sendMsg").innerHTML = "No message";
+		// 		// }
+		// 	}
+		// }
+
+		// function onClickSelect() {
+		// 	var inputs = document.getElementsByTagName('input');
+		// 	var checkbox = inputs[0];
+		// 	console.log("Inside onClickSelect")
+		// 	checkbox.disabled = false;
+		// 	checkbox.checked = true;
+		//
+		// 	textbox = $("li#"+checkbox.id)
+		// 	if (textbox.length > 0) {
+		// 		$("li#"+checkbox.id)[0].remove()
+		// 	}
+		//
+		// 	// onClickCheckbox(checkbox);
+		// }
+
+		function onClickSendMsg(button) {
+			processMsg();
+		}
+
+		/******************************************************/
+		var dragSrcEl = null;
+
+		function handleDragStart(e) {
+		  // Target (this) element is the source node.
+		  dragSrcEl = this;
+
+		  e.dataTransfer.effectAllowed = 'move';
+		  e.dataTransfer.setData('text/html', this.outerHTML);
+
+		  this.classList.add('dragElem');
+		}
+
+		function handleDragOver(e) {
+		  if (e.preventDefault) {
+		    e.preventDefault(); // Necessary. Allows us to drop.
+		  }
+		  this.classList.add('over');
+
+		  e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+		  return false;
+		}
+
+		function handleDragEnter(e) {
+		  // this / e.target is the current hover target.
+		}
+
+		function handleDragLeave(e) {
+		  this.classList.remove('over');  // this / e.target is previous target element.
+		}
+
+		function handleDrop(e) {
+		  // this/e.target is current target element.
+
+		  if (e.stopPropagation) {
+		    e.stopPropagation(); // Stops some browsers from redirecting.
+		  }
+
+		  // Don't do anything if dropping the same column we're dragging.
+		  if (dragSrcEl != this) {
+		    // Set the source column's HTML to the HTML of the column we dropped on.
+		    //alert(this.outerHTML);
+		    //dragSrcEl.innerHTML = this.innerHTML;
+		    //this.innerHTML = e.dataTransfer.getData('text/html');
+		    this.parentNode.removeChild(dragSrcEl);
+		    var dropHTML = e.dataTransfer.getData('text/html');
+		    this.insertAdjacentHTML('beforebegin',dropHTML);
+		    var dropElem = this.previousSibling;
+		    addDnDHandlers(dropElem);
+
+		  }
+		  this.classList.remove('over');
+		  return false;
+		}
+
+		function handleDragEnd(e) {
+		  // this/e.target is the source node.
+		  this.classList.remove('over');
+
+		  /*[].forEach.call(cols, function (col) {
+		    col.classList.remove('over');
+		  });*/
+		}
+
+		function addDnDHandlers(elem) {
+		  elem.addEventListener('dragstart', handleDragStart, false);
+		  elem.addEventListener('dragenter', handleDragEnter, false)
+		  elem.addEventListener('dragover', handleDragOver, false);
+		  elem.addEventListener('dragleave', handleDragLeave, false);
+		  elem.addEventListener('drop', handleDrop, false);
+		  elem.addEventListener('dragend', handleDragEnd, false);
+
+		}
+
+		/*
+		function addEvent() {
+			var cols = document.getElementsByClassName("msg");
+
+			for (let col of cols) {
+				addDnDHandlers(col);
+			}
+		}
+
+
+		window.onload = function () {
+			var messages = document.getElementById('chatmessages');
+			messages.scrollTop = messages.scrollHeight;
+			//addEvent()
+		}
+		*/
+	</script>
+
+	</head>
+	<body>
+	<div class="container">
+		<div class="row" style="height:500px">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="text-align:center; max-width: 70px;">
+				<br><br><br><br><br><br><br><br>
+				<h3 class="me">You</h3>
+			</div>
+
+			<div class="col-lg3 col-md-3 col-sm-3 col-xs-3" style="text-align:center;">
+				<h3 class="notMe"> Partner </h3>
+		        <!-- Game Board -->
+
+				<div>
+					<div class = "row">
+						<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-2 boardHeader" ></div>
+						<div id = "optionX" class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardHeader unsubnotMe"> <h1> X </h1> </div>
+						<div id = "optionY" class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardHeader unsubnotMe"> <h1> Y </h1> </div>
+					</div>
+					<div class = "row" id="gameboard">
+						<h4 id="loader"></h4>
+						<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-2 emptyboardRow" >
+							<br>
+							<button type="button" id="optionA" @mouseenter="Row1=true" @mouseleave="Row1=false" class = "btn btn-primary unsubme">
+								<h1>A</h1>
+			                </button>
+						</div>
+
+						<div class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardRow" id="square1">
+		                  	<br>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<br>
+									<h1 class="me" id="1f">a</h1>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<h2 class="notMe" id="1b">b</h2>
+								</div>
+							</div>
+						</div>
+
+		              	<div class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardRow" id="square2">
+		                	<br>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<br>
+									<h1 class="me" id="2f">c</h1>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<h2 class="notMe" id="2b">d</h2>
+								</div>
+							</div>
+		              	</div>
+
+						<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-2 emptyboardRow" >
+							<br>
+							<button type="button" id="optionB" @mouseenter="Row2=true" @mouseleave="Row2=false" class = "btn btn-primary unsubme">
+								<h1>B</h1>
+			                </button>
+						</div>
+
+						<div class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardRow" id="square3">
+							<br>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<br>
+									<h1 class="me" id="3f">e</h1>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<h2 class="notMe" id="3b">f</h2>
+								</div>
+							</div>
+						</div>
+
+						<div class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardRow" id="square4">
+							<br>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<br>
+									<h1 class="me" id="4f">g</h1>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<h2 class="notMe" id="4b">h</h2>
+								</div>
+							</div>
+						</div>
+		  			</div>
+		        </div>
+
+				<br>
+
+				<div style="text-align:left">
+					<div class="row">
+						<div class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardHeader"> <br> <h4>Money Earned:</h4> </div>
+						<div class = "col-lg-5 col-md-5 col-sm-5 col-xs-5 boardHeader"> <br> <h2 id="moneyEarned"> &nbsp; $0</h2> </div>
+					</div>
+				</div>
+
+
+	  		<br>
+
+			</div>
+
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+			<div id="History" class="w-100 col-lg-7 col-md-7 col-sm-7 col-xs-7" style="text-align:center">
+				<br>
+				<table class="w-100 table-bordered table-striped" id="hist_table">
+				  <thead>
+				    <tr>
+					  <th class="sm-col"></th>
+					  <!--
+					  <th class="r-col">#</th>
+				  	-->
+				      <th>Your Message</th>
+				      <th>Partner's Message</th>
+				      <th class="sm-col">Your Action</th>
+					  <th class="sm-col">Partner's Action</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  </tbody>
+				</table>
+
+			</div>
+		</div>
+		<br>
+		<!--Message-->
+		<div class="row" id="cheaptalk">
+<!--			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">-->
+<!--				<h3 style="text-align:center;">Possible things you can tell your partner</h3>-->
+<!--				<div class = "row">-->
+<!--					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">-->
+<!--						<div id="cbx0">-->
+<!--							<input type="checkbox" id="cbx0" onclick=onClickCheckbox(this) value="Let’s play" disabled>-->
+<!--							Let's play-->
+<!--							<select id="opt" onchange=onClickSelect()>-->
+<!--								<option id="noopt" value="" selected disabled>&#45;&#45;</option>-->
+<!--								<option id="optAX" value="00">AX</option>-->
+<!--								<option id="optAY" value="01">AY</option>-->
+<!--								<option id="optBX" value="10">BX</option>-->
+<!--								<option id="optBY" value="11">BY</option>-->
+<!--							</select>-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx1">-->
+<!--							<input type="checkbox" id="cbx1" onclick=onClickCheckbox(this) value="I hope to find a compromise that is good for both of us""Let’s be fair and cooperative, taking turns when necessary">-->
+<!--							I hope to find a compromise that is good for both of us-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx2">-->
+<!--							<input type="checkbox" id="cbx2" onclick=onClickCheckbox(this) value="Do as I say, or I’ll punish you">-->
+<!--							Do as I say, or I’ll punish you-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx3">-->
+<!--							<input type="checkbox" id="cbx3" onclick=onClickCheckbox(this) value="Stop doing that">-->
+<!--							Stop doing that-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx4">-->
+<!--						<input type="checkbox" id="cbx4" onclick=onClickCheckbox(this) value="I'm still mad at you">-->
+<!--							I'm still mad at you-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx5">-->
+<!--						<input type="checkbox" id="cbx5" onclick=onClickCheckbox(this) value="You aren't being fair">-->
+<!--							You aren't being fair-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx6">-->
+<!--						<input type="checkbox" id="cbx6" onclick=onClickCheckbox(this) value="I don’t trust you">-->
+<!--							I don't trust you-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx7">-->
+<!--						<input type="checkbox" id="cbx7" onclick=onClickCheckbox(this) value="Excellent">-->
+<!--							Excellent-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx8">-->
+<!--						<input type="checkbox" id="cbx8" onclick=onClickCheckbox(this) value="Sweet! We are getting rich">-->
+<!--							Sweet! We are getting rich-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx12">-->
+<!--							<input type="checkbox" id="cbx12" onclick=onClickCheckbox(this) value="Thanks">-->
+<!--							Thanks-->
+<!--							<br>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">-->
+<!--						<div id="cbx17">-->
+<!--						<input type="checkbox" id="cbx17" onclick=onClickCheckbox(this) value="Let’s cooperate">-->
+<!--							Let’s cooperate-->
+<!--						</div>-->
+<!--						<div id="cbx18">-->
+<!--							<input type="checkbox" id="cbx18" onclick=onClickCheckbox(this) value="I should get higher payoffs">-->
+<!--							I should get higher payoffs-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx19">-->
+<!--							<input type="checkbox" id="cbx19" onclick=onClickCheckbox(this) value="You should get higher payoffs">-->
+<!--							You should get higher payoffs-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx9">-->
+<!--							<input type="checkbox" id="cbx9" onclick=onClickCheckbox(this) value="Give me another chance">-->
+<!--							Give me another chance-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx10">-->
+<!--							<input type="checkbox" id="cbx10" onclick=onClickCheckbox(this) value="I forgive you">-->
+<!--							I forgive you-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx11">-->
+<!--							<input type="checkbox" id="cbx11" onclick=onClickCheckbox(this) value="I’m changing my strategy">-->
+<!--							I'm changing my strategy-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx13">-->
+<!--							<input type="checkbox" id="cbx13" onclick=onClickCheckbox(this) value="Curse you">-->
+<!--							Curse you-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx14">-->
+<!--						<input type="checkbox" id="cbx14" onclick=onClickCheckbox(this) value="You betrayed me">-->
+<!--							You betrayed me-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx15">-->
+<!--							<input type="checkbox" id="cbx15" onclick=onClickCheckbox(this) value="You will be pay for this">-->
+<!--							You will pay for this-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx16">-->
+<!--							<input type="checkbox" id="cbx16" onclick=onClickCheckbox(this) value="In your face">-->
+<!--							In your face-->
+<!--							<br>-->
+<!--						</div>-->
+<!--						<div id="cbx20">-->
+<!--							<input type="checkbox" id="cbx20" onclick=onClickCheckbox(this) value="Sorry. I made a mistake">-->
+<!--							Sorry. I made a mistake-->
+<!--							<br>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="text-align:center;"></div>
+
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="text-align:center;">
+				<h3>Chat Window</h3>
+				<ul id="msgs">
+				</ul>
+				<textarea id="msg" class="cheaptalk-button" name="chat" rows="4" cols="50" maxlength="900"></textarea>
+
+				<button id="sendMsg" class="btn btn-primary cheaptalk-button" onclick=onClickSendMsg(this) style="text-align:center;">Send Message</button>
+				<!--
+				<div class = "row">
+
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:center;">
+						<button id="sendMsg" class="btn btn-primary cheaptalk-button" onclick=processMsg()> Send Message </button>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="text-align:center;"></div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:center; padding-left: 40px;">
+						<button class="btn btn-primary cheaptalk-button" onclick=processNoMsg()> No Message </button>
+					</div>
+
+				</div>
+				-->
+			</div>
+			<!--
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:center;">
+					<h3>Conversation</h3>
+					<div class = "msgsBox" id = "chatbox">
+						<div id="chatmessages">
+						</div>
+			</div>
+			-->
+		</div>
+
+	</div>
+
+
+
+	</body>
+</html>

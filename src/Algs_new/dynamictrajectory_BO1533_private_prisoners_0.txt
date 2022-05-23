@@ -1,0 +1,1185 @@
+2
+2
+0.600000	0.600000
+0.000000	1.000000
+1.000000	0.000000
+0.200000	0.200000
+0.200000 0.200000
+0.000000 1.000000
+0.000000 1.000000
+0.000000 1.000000
+0.000000 1.000000
+numExperts = 11
+{ Type = MAXIMIN ; TurnTaking = No ; Payoffs = ( 0.00 , 0.00 ) ; Target = None }
+{ Type = BR ; TurnTaking = No ; Payoffs = ( 0.00 , 0.00 ) ; Target = None }
+{ Type = PREVENT ; TurnTaking = No ; Payoffs = ( 0.00 , 0.00 ) ; Target = None }
+{ Type = FOLLOWER ; TurnTaking = No ; Payoffs = ( 0.60 , 0.60 ) ; Target = AX }
+{ Type = LEADER ; TurnTaking = No ; Payoffs = ( 0.60 , 0.60 ) ; Target = AX }
+{ Type = FOLLOWER ; TurnTaking = Yes ; Payoffs = ( 0.50 , 0.50 ) ; Target = AY-BX }
+{ Type = LEADER ; TurnTaking = Yes ; Payoffs = ( 0.50 , 0.50 ) ; Target = AY-BX }
+{ Type = FOLLOWER ; TurnTaking = Yes ; Payoffs = ( 0.30 , 0.80 ) ; Target = AY-AX }
+{ Type = LEADER ; TurnTaking = Yes ; Payoffs = ( 0.30 , 0.80 ) ; Target = AY-AX }
+{ Type = FOLLOWER ; TurnTaking = Yes ; Payoffs = ( 0.80 , 0.30 ) ; Target = AX-BX }
+{ Type = LEADER ; TurnTaking = Yes ; Payoffs = ( 0.80 , 0.30 ) ; Target = AX-BX }
+
+Round 0
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Let's always play AC. Do as I say, or I will punish you. 
+Their_CT:Don't play A. 
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 1
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 1
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Let's always play AC. We can both do better than this. Do as I say, or I will punish you. 
+Their_CT:Let's always play AC. Do as I say, or I will punish you. 
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 2
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. Let's always play AC. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 3
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 4
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 5
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 6
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 7
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 8
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. Sweet. We are getting rich. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 9
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 10
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 11
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 12
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 13
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 14
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 15
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 16
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 17
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 18
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 19
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 20
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 21
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 22
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 23
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 24
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 25
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 26
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 27
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 28
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 29
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 30
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 31
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. Sweet. We are getting rich. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 32
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 33
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 34
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 35
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 36
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 37
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 38
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 39
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 40
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 41
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:Excellent. 
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 42
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 43
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 44
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 45
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 46
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 47
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 48
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 49
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0
+My_CT:<none>
+Their_CT:<none>
+Re-CurrentExpert: 1
+Re-tsProposal: 0
+Re-lastProposal: 00
+re-Congruence: 0 0 0 0 0 0 0 0 0 0 0
+re-currentState: 0
+meMove: 0
+theirMove: 0
+newExpertSuccess: 1.000000
+newCycleStatus: 10
+
+Round 50
+CurrentExpert: 0
+AspirationLevel: 1.0
+ExpertSuccess: 0
+CycleStatus: <none>
+tsProposal: 99999
+lastProposal: <none>
+Potentials: 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
+historicalAve: 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000
+Congruence: 0 0 0 0 0 0 0 0 0 0 0
+currentState: 0

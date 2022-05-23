@@ -1,0 +1,4 @@
+StructuredGames/dilemmas/prisoners
+StructuredGames/dilemmas/chicken2
+StructuredGames/dilemmas/endless
+StructuredGames/dilemmas/chickenalt

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="no-js" lang="" style="color:#222;line-height: 1.4;">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Wait After Game Page</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<link rel="stylesheet" href="css/main.css">
+		<style>
+		a:hover{
+			text-decoration: none;
+		}
+
+		.header{
+			position:relative;
+			height:10vh;
+			background-color: transparent;
+		}
+
+		</style>
+
+		<script type="text/javascript">
+      $(document).ready(function(){
+				$('#continueButton').click(function(){
+					document.getElementById("waitMessage").innerHTML = "<br><br><img src='./images/ajax-loader.gif'/>" +
+																															"<br><br><i>Please wait to begin next game.</i>"
+					$('#continueButton').addClass("disabled");
+
+					pseudoLogin();
+				})
+
+				getGameResults();
+        checkStatus();
+      });
+
+      window.setInterval(function(){
+        checkStatus();
+      }, 2000);
+
+			function pseudoLogin(){
+				var path = "/login";
+				var method = "post";
+				var params = "{\"playerID\":\""+ localStorage["playerID"] +"\",\"password\":\"nil\"}";
+				var obj = new XMLHttpRequest();
+
+				// console.log(params);
+				obj.onreadystatechange = function () {
+					var response = obj.responseText;
+					if (response) {
+						var responseJson = JSON.parse(response);
+
+						// console.log(responseJson);
+
+					}
+				};
+
+				obj.open(method,path,false);
+				obj.setRequestHeader("Content-Type", "application/json");
+				obj.send(params);
+				return false;
+			}
+
+      function checkStatus()
+      {
+        var path = "/checkStatus";
+        var method = "post";
+        var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+        var obj = new XMLHttpRequest();
+
+        obj.onreadystatechange = function () {
+          var response = obj.responseText;
+          if (response) {
+            var responseJson = JSON.parse(response);
+
+            if(responseJson.status == "playing a game"){
+              window.location.pathname = "playGame.html"
+            }
+						else if(responseJson.status == "done with all games"){
+							window.location.pathname = "endOfGame.html"
+						}
+          }
+        };
+
+        obj.open(method,path,false);
+        obj.setRequestHeader("Content-Type", "application/json");
+        obj.send(params);
+        return false;
+      }
+
+			function getGameResults(roundJson)
+			{
+				var path = "/getGameResults";
+				var method = "post";
+				var params = "{\"playerID\":\""+localStorage["playerID"]+ "\"}";
+
+				var obj = new XMLHttpRequest();
+
+				obj.onreadystatechange = function () {
+					var response = obj.responseText;
+					if (response) {
+						var responseJson = JSON.parse(response);
+
+						if(responseJson.hasOwnProperty("summedPayoff")){
+							document.getElementById("gamePayoff").innerHTML = "In the last game, you earned: $" + Math.round(responseJson.summedPayoff)/100
+						}
+
+					}
+				};
+
+				obj.open(method,path,false);
+				obj.setRequestHeader("Content-Type", "application/json");
+				obj.send(params);
+			}
+
+	 </script>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="row header"></div>
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:center;">
+
+          <h3 id="gamePayoff"></h3>
+					<br>
+					<br>
+					<a class="btn btn-outline-primary btn-lg" href="#" id="continueButton" id= role="button">Continue</a>
+					<br>
+					<h4 id="waitMessage"></h4>
+				</div>
+
+
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+			</div>
+		</div>
+
+
+
+	</body>
+</html>

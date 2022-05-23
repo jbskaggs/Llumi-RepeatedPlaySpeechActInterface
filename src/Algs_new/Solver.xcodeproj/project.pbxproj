@@ -1,0 +1,226 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		0C144683215EDCB600A7A831 /* createDynamicTrajectory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = createDynamicTrajectory.cpp; sourceTree = "<group>"; };
+		0E3AC2F41D321F930091E455 /* personality.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = personality.h; sourceTree = "<group>"; };
+		0E3AC2F51D321FF10091E455 /* personality.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = personality.cpp; sourceTree = "<group>"; };
+		0E3AC2F61D3BB1270091E455 /* batch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = batch.cpp; sourceTree = "<group>"; };
+		0E9A557C19D4534A0093F276 /* Bouncer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bouncer.cpp; sourceTree = "<group>"; };
+		0E9A557D19D4534A0093F276 /* Bouncer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bouncer.h; sourceTree = "<group>"; };
+		0E9A557E19D4534A0093F276 /* Br.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Br.cpp; sourceTree = "<group>"; };
+		0E9A557F19D4534A0093F276 /* Br.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Br.h; sourceTree = "<group>"; };
+		0E9A558019D4534A0093F276 /* Follower.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Follower.cpp; sourceTree = "<group>"; };
+		0E9A558119D4534A0093F276 /* Follower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Follower.h; sourceTree = "<group>"; };
+		0E9A558219D4534A0093F276 /* Leader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Leader.cpp; sourceTree = "<group>"; };
+		0E9A558319D4534A0093F276 /* Leader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Leader.h; sourceTree = "<group>"; };
+		0EA312781A886C270012C720 /* RL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RL.cpp; sourceTree = "<group>"; };
+		0EA312791A886C270012C720 /* RL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RL.h; sourceTree = "<group>"; };
+		0EA3127A1A886C270012C720 /* stageGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stageGame.cpp; sourceTree = "<group>"; };
+		0EA3127B1A886C270012C720 /* stageGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stageGame.h; sourceTree = "<group>"; };
+		0EA3128A1AA42EAC0012C720 /* MatrixEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixEngine.cpp; sourceTree = "<group>"; };
+		0EA3128B1AA42EC30012C720 /* MatrixEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatrixEngine.h; sourceTree = "<group>"; };
+		0EA3128C1AB5A1DC0012C720 /* ctModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ctModel.h; sourceTree = "<group>"; };
+		0EA3128D1AB5A2300012C720 /* ctModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ctModel.cpp; sourceTree = "<group>"; };
+		0EB6ED451951959E0081F023 /* LEGOEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LEGOEngine.cpp; sourceTree = "<group>"; };
+		0EB6ED461951959E0081F023 /* LEGOEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LEGOEngine.h; sourceTree = "<group>"; };
+		0EB6ED471951C0EC0081F023 /* rndmPlyr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rndmPlyr.cpp; sourceTree = "<group>"; };
+		0EB6ED481951C0EC0081F023 /* rndmPlyr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rndmPlyr.h; sourceTree = "<group>"; };
+		0EB6ED4919693FBF0081F023 /* Node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		0EB6ED4A19693FBF0081F023 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		0EB6ED4B196940BF0081F023 /* CFR.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CFR.cpp; sourceTree = "<group>"; };
+		0EB6ED4C196940BF0081F023 /* CFR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFR.h; sourceTree = "<group>"; };
+		0EB6ED4F196A78410081F023 /* MySocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MySocket.cpp; sourceTree = "<group>"; };
+		0EB6ED50196A78410081F023 /* MySocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySocket.h; sourceTree = "<group>"; };
+		0EB6ED51196A7D4F0081F023 /* client_socket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = client_socket.cpp; sourceTree = "<group>"; };
+		0EB6ED52196A7D4F0081F023 /* client_socket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = client_socket.h; sourceTree = "<group>"; };
+		0EBE36E31972B371000B5C3D /* CommAgent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommAgent.cpp; sourceTree = "<group>"; };
+		0EBE36E41972B371000B5C3D /* CommAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommAgent.h; sourceTree = "<group>"; };
+		0EC04FA319249159003F7A8B /* defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defs.h; sourceTree = "<group>"; };
+		0EC04FA419249159003F7A8B /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		0EC04FA519249184003F7A8B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0EC04FA71924939B003F7A8B /* MarkovGame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MarkovGame.cpp; sourceTree = "<group>"; };
+		0EC04FA81924939B003F7A8B /* MarkovGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkovGame.h; sourceTree = "<group>"; };
+		0EC04FA919249488003F7A8B /* State.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
+		0EC04FAA19249488003F7A8B /* State.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		0EC04FAF1924A5ED003F7A8B /* PhysicsRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsRule.h; sourceTree = "<group>"; };
+		0EC04FB01924A5ED003F7A8B /* PhysicsRule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsRule.cpp; sourceTree = "<group>"; };
+		0EC04FB11924A62D003F7A8B /* gameWriter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameWriter.cpp; sourceTree = "<group>"; };
+		0EC04FB21924A62D003F7A8B /* gameWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gameWriter.h; sourceTree = "<group>"; };
+		0EC04FB3192A0965003F7A8B /* minimaxLog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = minimaxLog.cpp; sourceTree = "<group>"; };
+		0EC04FB4192A0965003F7A8B /* minimaxLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minimaxLog.h; sourceTree = "<group>"; };
+		0EC04FB5192A4C2C003F7A8B /* Qset.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Qset.cpp; sourceTree = "<group>"; };
+		0EC04FB6192A4C2C003F7A8B /* Qset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Qset.h; sourceTree = "<group>"; };
+		0EC04FB9192B5881003F7A8B /* Expert.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Expert.cpp; sourceTree = "<group>"; };
+		0EC04FBA192B5881003F7A8B /* Expert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expert.h; sourceTree = "<group>"; };
+		0EC04FBB192B77BC003F7A8B /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		0EC04FBC192B77BC003F7A8B /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		0EC04FBF192DA005003F7A8B /* Xprt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xprt.h; sourceTree = "<group>"; };
+		0EC04FC0192DA047003F7A8B /* Xprt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Xprt.cpp; sourceTree = "<group>"; };
+		0EC04FC1192DA704003F7A8B /* mega.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mega.cpp; sourceTree = "<group>"; };
+		0EC04FC2192DA704003F7A8B /* mega.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mega.h; sourceTree = "<group>"; };
+		0EC04FD01931D93C003F7A8B /* jefe++.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jefe++.h"; sourceTree = "<group>"; };
+		0EC04FD11931D93C003F7A8B /* jefe++.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "jefe++.cpp"; sourceTree = "<group>"; };
+		0EC04FD21931EA0C003F7A8B /* a.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = a.cpp; sourceTree = "<group>"; };
+		0EC04FD31931EA0C003F7A8B /* a.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = a.h; sourceTree = "<group>"; };
+		0EC04FD41931EA34003F7A8B /* expertLearner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = expertLearner.cpp; sourceTree = "<group>"; };
+		0EC04FD51931EA34003F7A8B /* expertLearner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = expertLearner.h; sourceTree = "<group>"; };
+		0EC04FD619320A49003F7A8B /* eee.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = eee.cpp; sourceTree = "<group>"; };
+		0EC04FD719320A49003F7A8B /* eee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eee.h; sourceTree = "<group>"; };
+		0EC04FD819345EDF003F7A8B /* MazeEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MazeEngine.cpp; sourceTree = "<group>"; };
+		0EC04FD919345EDF003F7A8B /* MazeEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MazeEngine.h; sourceTree = "<group>"; };
+		0EC04FDA19345F46003F7A8B /* GameEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameEngine.cpp; sourceTree = "<group>"; };
+		0EC04FDB19345F46003F7A8B /* GameEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
+		0EC04FDE193472D2003F7A8B /* GridWarEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GridWarEngine.cpp; sourceTree = "<group>"; };
+		0EC04FDF193472D2003F7A8B /* GridWarEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridWarEngine.h; sourceTree = "<group>"; };
+		0EC04FE0193732EA003F7A8B /* Solution.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Solution.cpp; sourceTree = "<group>"; };
+		0EC04FE1193732EA003F7A8B /* Solution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Solution.h; sourceTree = "<group>"; };
+		0EC04FE2193D8616003F7A8B /* Preventer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Preventer.cpp; sourceTree = "<group>"; };
+		0EC04FE3193D8616003F7A8B /* Preventer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preventer.h; sourceTree = "<group>"; };
+		0EC04FE4193F4A8B003F7A8B /* Exp3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Exp3.cpp; sourceTree = "<group>"; };
+		0EC04FE5193F4A8B003F7A8B /* Exp3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Exp3.h; sourceTree = "<group>"; };
+		0EC04FE8193F8A06003F7A8B /* processing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = processing.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0EC04F9C1924910B003F7A8B = {
+			isa = PBXGroup;
+			children = (
+				0C144683215EDCB600A7A831 /* createDynamicTrajectory.cpp */,
+				0E3AC2F61D3BB1270091E455 /* batch.cpp */,
+				0EC04FE8193F8A06003F7A8B /* processing.cpp */,
+				0EC04FA419249159003F7A8B /* makefile */,
+				0EC04FA319249159003F7A8B /* defs.h */,
+				0EC04FA519249184003F7A8B /* main.cpp */,
+				0EC04FBC192B77BC003F7A8B /* Player.h */,
+				0EC04FBB192B77BC003F7A8B /* Player.cpp */,
+				0EB6ED481951C0EC0081F023 /* rndmPlyr.h */,
+				0EB6ED471951C0EC0081F023 /* rndmPlyr.cpp */,
+				0EA312791A886C270012C720 /* RL.h */,
+				0EA312781A886C270012C720 /* RL.cpp */,
+				0EA3127B1A886C270012C720 /* stageGame.h */,
+				0EA3127A1A886C270012C720 /* stageGame.cpp */,
+				0EC04FE3193D8616003F7A8B /* Preventer.h */,
+				0EC04FE2193D8616003F7A8B /* Preventer.cpp */,
+				0E3AC2F41D321F930091E455 /* personality.h */,
+				0E3AC2F51D321FF10091E455 /* personality.cpp */,
+				0EA3128C1AB5A1DC0012C720 /* ctModel.h */,
+				0EA3128D1AB5A2300012C720 /* ctModel.cpp */,
+				0EC04FD01931D93C003F7A8B /* jefe++.h */,
+				0EC04FD11931D93C003F7A8B /* jefe++.cpp */,
+				0EC04FBF192DA005003F7A8B /* Xprt.h */,
+				0EC04FC0192DA047003F7A8B /* Xprt.cpp */,
+				0EB6ED4C196940BF0081F023 /* CFR.h */,
+				0EB6ED4B196940BF0081F023 /* CFR.cpp */,
+				0EB6ED4A19693FBF0081F023 /* Node.h */,
+				0EB6ED4919693FBF0081F023 /* Node.cpp */,
+				0EC04FC2192DA704003F7A8B /* mega.h */,
+				0EC04FC1192DA704003F7A8B /* mega.cpp */,
+				0EC04FE1193732EA003F7A8B /* Solution.h */,
+				0EC04FE0193732EA003F7A8B /* Solution.cpp */,
+				0EC04FBA192B5881003F7A8B /* Expert.h */,
+				0EC04FB9192B5881003F7A8B /* Expert.cpp */,
+				0EC04FA81924939B003F7A8B /* MarkovGame.h */,
+				0EC04FA71924939B003F7A8B /* MarkovGame.cpp */,
+				0EC04FAA19249488003F7A8B /* State.h */,
+				0EC04FA919249488003F7A8B /* State.cpp */,
+				0EC04FB6192A4C2C003F7A8B /* Qset.h */,
+				0EC04FB5192A4C2C003F7A8B /* Qset.cpp */,
+				0EC04FB4192A0965003F7A8B /* minimaxLog.h */,
+				0EC04FB3192A0965003F7A8B /* minimaxLog.cpp */,
+				0EC04FD51931EA34003F7A8B /* expertLearner.h */,
+				0EC04FD41931EA34003F7A8B /* expertLearner.cpp */,
+				0EC04FD31931EA0C003F7A8B /* a.h */,
+				0EC04FD21931EA0C003F7A8B /* a.cpp */,
+				0EC04FE5193F4A8B003F7A8B /* Exp3.h */,
+				0EC04FE4193F4A8B003F7A8B /* Exp3.cpp */,
+				0EC04FD719320A49003F7A8B /* eee.h */,
+				0EC04FD619320A49003F7A8B /* eee.cpp */,
+				0EC04FDB19345F46003F7A8B /* GameEngine.h */,
+				0EC04FDA19345F46003F7A8B /* GameEngine.cpp */,
+				0EA3128B1AA42EC30012C720 /* MatrixEngine.h */,
+				0EA3128A1AA42EAC0012C720 /* MatrixEngine.cpp */,
+				0EC04FDF193472D2003F7A8B /* GridWarEngine.h */,
+				0EC04FDE193472D2003F7A8B /* GridWarEngine.cpp */,
+				0EB6ED461951959E0081F023 /* LEGOEngine.h */,
+				0EB6ED451951959E0081F023 /* LEGOEngine.cpp */,
+				0EC04FD919345EDF003F7A8B /* MazeEngine.h */,
+				0EC04FD819345EDF003F7A8B /* MazeEngine.cpp */,
+				0EC04FAF1924A5ED003F7A8B /* PhysicsRule.h */,
+				0EC04FB01924A5ED003F7A8B /* PhysicsRule.cpp */,
+				0EC04FB21924A62D003F7A8B /* gameWriter.h */,
+				0EC04FB11924A62D003F7A8B /* gameWriter.cpp */,
+				0EB6ED50196A78410081F023 /* MySocket.h */,
+				0EB6ED4F196A78410081F023 /* MySocket.cpp */,
+				0EB6ED52196A7D4F0081F023 /* client_socket.h */,
+				0EB6ED51196A7D4F0081F023 /* client_socket.cpp */,
+				0EBE36E41972B371000B5C3D /* CommAgent.h */,
+				0EBE36E31972B371000B5C3D /* CommAgent.cpp */,
+				0E9A557C19D4534A0093F276 /* Bouncer.cpp */,
+				0E9A557D19D4534A0093F276 /* Bouncer.h */,
+				0E9A557E19D4534A0093F276 /* Br.cpp */,
+				0E9A557F19D4534A0093F276 /* Br.h */,
+				0E9A558019D4534A0093F276 /* Follower.cpp */,
+				0E9A558119D4534A0093F276 /* Follower.h */,
+				0E9A558219D4534A0093F276 /* Leader.cpp */,
+				0E9A558319D4534A0093F276 /* Leader.h */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		0EC04F9D1924910B003F7A8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 0EC04FA01924910B003F7A8B /* Build configuration list for PBXProject "Solver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0EC04F9C1924910B003F7A8B;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		0EC04FA11924910B003F7A8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		0EC04FA21924910B003F7A8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EC04FA01924910B003F7A8B /* Build configuration list for PBXProject "Solver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC04FA11924910B003F7A8B /* Debug */,
+				0EC04FA21924910B003F7A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0EC04F9D1924910B003F7A8B /* Project object */;
+}
